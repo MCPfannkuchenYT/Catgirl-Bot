@@ -46,8 +46,10 @@ public class CatgirlBot extends ListenerAdapter implements Runnable {
 					event.reply(event.getUser().getAsMention() + " " + event.getCommandPath().split("/")[0] + "s " + event.getOptions().get(0).getAsUser().getAsMention() + "\n" + msg).complete();
 				}
 			}
-		} catch (Exception e) {
+		} catch (Throwable e) {
 			e.printStackTrace();
+			pics.clear();
+			onSlashCommand(event);
 		}
 	}
 
